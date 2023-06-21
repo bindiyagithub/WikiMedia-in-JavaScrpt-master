@@ -9,21 +9,26 @@ getData = () => {
 
 }
 
-display = (data) => {
+display = (data) => 
+{
 
-    for (const key in data) {
-        if (key == "query") {
-            for (const k in data[key]) {
+    for (const key in data) 
+    {
+        if (key == "query") 
+        {
+            for (const k in data[key]) 
+            {
                 myJson = data[key][k];
             }
         }
     }
 
-    document.getElementById("result").innerHTML = 
-    myJson.map((value) => 
+    
+   let output = myJson.map((value) => 
     {
         return ` <div class="item">
                 <h3 id="title">${value.title}</h3>
-    <p>${value.snippet}</p></div>`;
-    }).join("");
+                <p>${value.snippet}</p></div>`;
+    })
+    document.getElementById("result").innerHTML = output.join("");
 }
